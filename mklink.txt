@@ -3,3 +3,5 @@ mklink C:\Users\xxxxx\.vimrc C:\Users\xxxxx\dotfiles\.vimrc
 mklink C:\Users\xxxxx\.gvimrc C:\Users\xxxxx\dotfiles\.gvimrc
 
 mklink /d C:\Users\xxxxx\vimfiles C:\Users\xxxxx\dotfiles\vimfiles
+
+mklink C:\Users\xxxxx\_vimperatorrc C:\Users\xxxxx\dotfiles\_vimperatorrc
