@@ -16,7 +16,10 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set helplang=en
-
+set display=lastline
+set pumheight=10
+set showmatch
+set matchtime=1
 
 " 常にステータス行を表示
 set laststatus=2
@@ -28,6 +31,11 @@ set showmode
 nnoremap <Esc><Esc> :noh<CR>
 " カーソル位置の単語をyankする
 nnoremap vv vawy
+" 行末までヤンク
+nnoremap Y y$
+
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 " 文頭・文末への移動
 nnoremap <Space>h ^
