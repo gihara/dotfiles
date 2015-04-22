@@ -13,8 +13,8 @@ set iminsert=0
 set imsearch=-1
 
 " swp output directory
-set directory=C:\Users\kei\dotfiles\vimfiles\swap
-set undodir=C:\Users\kei\dotfiles\vimfiles\undo
+set directory=$home/dotfiles/vimfiles/swap
+set undodir=$home/dotfiles/vimfiles/undo
 
 " ウィンドウの透明度設定
 gui
