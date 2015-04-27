@@ -7,3 +7,6 @@ ln -sf $home/dotfiles/.vimrc $home/.vimrc
 ln -sf $home/dotfiles/.gvimrc $home/.gvimrc
 ln -sf $home/dotfiles/.vimfiles $home/.vimfiles
 ln -sf $home/dotfiles/_vimperatorrc $home/_vimperatorrc
+
+mkdir -p $home/dotfiles/vimfiles/swap
+mkdir -p $home/dotfiles/vimfiles/undo
