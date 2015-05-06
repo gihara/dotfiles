@@ -20,4 +20,6 @@ hi HintActive color: black; background-color: #ff8700;
 
 " デフォルトのエラー赤くてこわい＞＜
 hi ErrorMsg color:white; background-color: #ec6aa1;
-
+ 
+" 勝手に検索しないで…googleさんにデータ送りたくないよ。
+noremap p <nop>
