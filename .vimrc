@@ -20,6 +20,7 @@ set display=lastline
 set pumheight=10
 set showmatch
 set matchtime=1
+set nf=""
 
 " 常にステータス行を表示
 set laststatus=2
@@ -29,19 +30,7 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 set showmode
 " Reset Highlight
 nnoremap <Esc><Esc> :noh<CR>
-" カーソル位置の単語をyankする
-nnoremap vv vawy
-" 行末までヤンク
-nnoremap Y y$
 
-nnoremap + <C-a>
-nnoremap - <C-x>
-
-" 文頭・文末への移動
-nnoremap <Space>h ^
-nnoremap <Space>l $
-vnoremap <Space>h ^
-vnoremap <Space>l $
 
 " 改行を入れる
 nnoremap <c-j> i<CR><Esc>
