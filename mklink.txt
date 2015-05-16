@@ -10,3 +10,4 @@ ln -sf $home/dotfiles/_vimperatorrc $home/_vimperatorrc
 
 mkdir -p $home/dotfiles/vimfiles/swap
 mkdir -p $home/dotfiles/vimfiles/undo
+mkdir -p $home/dotfiles/vimfiles/backup
