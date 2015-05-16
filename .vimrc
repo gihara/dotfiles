@@ -21,6 +21,7 @@ set pumheight=10
 set showmatch
 set matchtime=1
 set nf=""
+set autochdir
 
 " 常にステータス行を表示
 set laststatus=2
