@@ -8,6 +8,9 @@ set complete=sl
 " 移動幅
 noremap j 5j
 noremap k 5k
+" キャレットではやらないで
+cnoremap j 5j
+cnoremap k 5k
 " VisualモードでC-gで選択しているテキストでGoogle検索
 vmap <silent> <C-g> y<Esc><Esc>P
 "============================
