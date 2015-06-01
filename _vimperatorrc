@@ -9,8 +9,8 @@ set complete=sl
 noremap j 5j
 noremap k 5k
 " キャレットではやらないで
-cnoremap j 5j
-cnoremap k 5k
+cnoremap j j
+cnoremap k k
 " VisualモードでC-gで選択しているテキストでGoogle検索
 vmap <silent> <C-g> y<Esc><Esc>P
 "============================
