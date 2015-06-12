@@ -22,9 +22,21 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 " ファイルをtree表示してくれる
 NeoBundle 'scrooloose/nerdtree'
-" Gitを便利に使う
-NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'tell-k/vim-browsereload-mac'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'tyru/caw.vim'
 
+
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
+au BufRead,BufNewFile *.md set filetype=markdown
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
@@ -34,9 +46,6 @@ call neobundle#end()
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 
 syntax on
 
@@ -54,9 +63,9 @@ set smartcase
 set hidden
 set history=2000
 set autoindent
-set expandtab
-set tabstop=2
-set shiftwidth=2
+"set expandtab
+set tabstop=4
+set shiftwidth=4
 set helplang=en
 set display=lastline
 set pumheight=10
@@ -114,3 +123,28 @@ nnoremap [Q :<C-u>cfirst<CR> " 最初へ
 nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 
 autocmd QuickFixCmdPost *grep* cwindow
+
+
+" let g:user_emmet_mode = 'iv'
+" let g:user_emmet_leader_key = '<C-Y>'
+let g:use_emmet_complete_tag = 1
+let g:user_emmet_settings = {
+      \ 'lang' : 'ja',
+      \ 'html' : {
+      \   'filters' : 'html',
+      \ },
+      \ 'css' : {
+      \   'filters' : 'fc',
+      \ },
+      \ 'php' : {
+      \   'extends' : 'html',
+      \   'filters' : 'html',
+      \ },
+      \}
+augroup EmmitVim
+  autocmd!
+  autocmd FileType * let g:user_emmet_settings.indentation = '               '[:&tabstop]
+augroup END
+
+nmap <Leader>c <Plug>(caw:i:toggle)
+vmap <Leader>c <Plug>(caw:i:toggle)
