@@ -2,7 +2,7 @@ set focuscontent
 inoremap <C-a> <Ins><C-a><Ins>
 set complete=sl
 " Hintモードでアルファベット使用
-" set hintchars=jfnvurhgytbkdmcielsxoe
+set hintchars=jfnvurhgytbkdmcielsxo
 " :oなどでの補完候補をサーチエンジン、履歴に限定
 set complete=sl
 " 移動幅
