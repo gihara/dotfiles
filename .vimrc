@@ -27,12 +27,19 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-surround'
 " インデントに色を付けて見やすくする
 NeoBundle 'nathanaelkane/vim-indent-guides'
+" アウトラインを表示
+NeoBundle 'Shougo/unite-outline'
+" 補完
+NeoBundle 'Shougo/neocomplete.vim'
+" js補完
+NeoBundle 'mattn/jscomplete-vim'
 
+" Markdown用
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
-au BufRead,BufNewFile *.md set filetype=markdown
+" Solarized
 NeoBundle 'altercation/vim-colors-solarized'
 
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
@@ -54,8 +61,9 @@ filetype plugin indent on
 
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.textile set filetype=texttile
-""let g:previm_open_cmd = 'open -a Firefox' これを入れておくと、起動が出来ない
+""let g:previm_open_cmd = 'open -a Firefox' これを入れておくと、previmの起動が出来ない
 " http://blog.remora.cx/2010/12/vim-ref-with-unite.html
+"
 """"""""""""""""""""""""""""""
 " Unit.vimの設定
 """"""""""""""""""""""""""""""
@@ -118,6 +126,11 @@ set showmode
 nnoremap <Esc><Esc> :noh<CR>
 
 
+" 文頭・文末への移動
+nnoremap <Space>h ^
+nnoremap <Space>l $
+vnoremap <Space>h ^
+vnoremap <Space>l $
 
 " 改行を入れる
 nnoremap <c-j> i<CR><Esc>
@@ -154,29 +167,6 @@ nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 autocmd QuickFixCmdPost *grep* cwindow
 
 
-" let g:user_emmet_mode = 'iv'
-" let g:user_emmet_leader_key = '<C-Y>'
-let g:use_emmet_complete_tag = 1
-let g:user_emmet_settings = {
-      \ 'lang' : 'ja',
-      \ 'html' : {
-      \   'filters' : 'html',
-      \ },
-      \ 'css' : {
-      \   'filters' : 'fc',
-      \ },
-      \ 'php' : {
-      \   'extends' : 'html',
-      \   'filters' : 'html',
-      \ },
-      \}
-augroup EmmitVim
-  autocmd!
-  autocmd FileType * let g:user_emmet_settings.indentation = '               '[:&tabstop]
-augroup END
-
-nmap <Leader>c <Plug>(caw:i:toggle)
-vmap <Leader>c <Plug>(caw:i:toggle)
 " netrwは常にtree view
 let g:netrw_liststyle = 3
 " 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
@@ -184,3 +174,95 @@ let g:netrw_altv = 1
 " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
 let g:netrw_alto = 1
 
+
+nnoremap [[ :Unite -no-quit -vertical outline<CR>
+
+
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+" For cursor moving in insert mode(Not recommended)
+"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+" Or set this.
+"let g:neocomplete#enable_cursor_hold_i = 1
+" Or set this.
+"let g:neocomplete#enable_insert_char_pre = 1
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+
+:let g:jscomplete_use = ['dom', 'moz']
+" => autoload/js/dom.vim と autoload/js/moz.vim が読まれる
