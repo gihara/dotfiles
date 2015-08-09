@@ -58,6 +58,10 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 " NeoBundleCheck
 "
+" swp output directory
+set directory=$HOME/dotfiles/vimfiles/swap
+set undodir=$HOME/dotfiles/vimfiles/undo
+set backupdir=$HOME/dotfiles/vimfiles/backup
 
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.textile set filetype=texttile

@@ -2,34 +2,34 @@
 :set smartcase
 
 
-"ƒJ[ƒ\ƒ‹ˆÊ’u‚Ì’PŒê‚ğyank‚·‚é
+"ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã®å˜èªã‚’yankã™ã‚‹
 nnoremap vv vawy
 
-"ÅŒã‚É•ÏX‚³‚ê‚½ƒeƒLƒXƒg‚ğ‘I‘ğ‚·‚é
+"æœ€å¾Œã«å¤‰æ›´ã•ã‚ŒãŸãƒ†ã‚­ã‚¹ãƒˆã‚’é¸æŠã™ã‚‹
 nnoremap gc  `[v`]
 vnoremap gc ;<C-u>normal gc<Enter>
 onoremap gc ;<C-u>normal gc<Enter>
 
-"  Insert mode’†‚Å’PŒê’PˆÊ/s’PˆÊ‚Ìíœ‚ğƒAƒ“ƒhƒD‰Â”\‚É‚·‚é
+"  Insert modeä¸­ã§å˜èªå˜ä½/è¡Œå˜ä½ã®å‰Šé™¤ã‚’ã‚¢ãƒ³ãƒ‰ã‚¥å¯èƒ½ã«ã™ã‚‹
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 
-" •¶“ªE•¶––‚Ö‚ÌˆÚ“®
+" æ–‡é ­ãƒ»æ–‡æœ«ã¸ã®ç§»å‹•
 nnoremap <Space>h ^
 nnoremap <Space>l $
 vnoremap <Space>h ^
 vnoremap <Space>l $
 
-" ‰üs‚ğ“ü‚ê‚é
+" æ”¹è¡Œã‚’å…¥ã‚Œã‚‹
 nnoremap <c-j> i<CR><Esc>
 
-" ‘}“üƒ‚[ƒh‚Å‚ÌƒJ[ƒ\ƒ‹ˆÚ“®
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã§ã®ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•
 inoremap <c-j> <Down>
 inoremap <c-k> <Up>
 inoremap <c-h> <Left>
 inoremap <c-l> <Right>
 
-" ˆø—p•„, Š‡ŒÊ‚Ìİ’è
+" å¼•ç”¨ç¬¦, æ‹¬å¼§ã®è¨­å®š
 "inoremap { {}<Left>
 "inoremap [ []<Left>
 "inoremap ( ()<Left>
@@ -37,7 +37,7 @@ inoremap <c-l> <Right>
 "inoremap ' ''<Left>
 inoremap <> <><Left>
 
-" ƒRƒ}ƒ“ƒhƒ‚[ƒh
+" ã‚³ãƒãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰
 cnoremap <c-f> <Right>
 cnoremap <c-b> <Left>
 cnoremap <c-a> <c-b>
@@ -46,30 +46,30 @@ cnoremap <c-u> <c-e><c-u>
 cnoremap <c-v> <c-f>a
 
 " vimgrep
-nnoremap [q :cprevious<CR>   " ‘O‚Ö
-nnoremap ]q :cnext<CR>       " Ÿ‚Ö
-nnoremap [Q :<C-u>cfirst<CR> " Å‰‚Ö
-nnoremap ]Q :<C-u>clast<CR>  " ÅŒã‚Ö
+nnoremap [q :cprevious<CR>   " å‰ã¸
+nnoremap ]q :cnext<CR>       " æ¬¡ã¸
+nnoremap [Q :<C-u>cfirst<CR> " æœ€åˆã¸
+nnoremap ]Q :<C-u>clast<CR>  " æœ€å¾Œã¸
 
 autocmd QuickFixCmdPost *grep* cwindow
-"sr‚ÅQÆ‚ğƒvƒƒWƒFƒNƒg‚©‚çŒŸõ
+"srã§å‚ç…§ã‚’ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰æ¤œç´¢
 eclipseaction SearchRef  org.eclipse.jdt.ui.edit.text.java.search.references.in.project
 noremap sr :SearchRef<C-m>
 
-"<space>j, <space>k‚Å‰æ–Ê‘—‚è
+"<space>j, <space>kã§ç”»é¢é€ã‚Š
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
-"ÅŒã‚É•ÒW‚³‚ê‚½ˆÊ’u‚ÉˆÚ“®
+"æœ€å¾Œã«ç·¨é›†ã•ã‚ŒãŸä½ç½®ã«ç§»å‹•
 eclipseaction GoLastEditPosition org.eclipse.ui.edit.text.gotoLastEditPosition
 nnoremap gb :GoLastEditPosition<C-m>
 
-"‘Î‰‚·‚éŠ‡ŒÊ‚ÉˆÚ“®
+"å¯¾å¿œã™ã‚‹æ‹¬å¼§ã«ç§»å‹•
 nnoremap [ %
 nnoremap ] %
 
 
-"Ÿ‚Ìƒƒ“ƒo(ƒtƒB[ƒ‹ƒh,ƒƒ\ƒbƒh)
+"æ¬¡ã®ãƒ¡ãƒ³ãƒ(ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰,ãƒ¡ã‚½ãƒƒãƒ‰)
 eclipseaction GoNextMember org.eclipse.jdt.ui.edit.text.java.goto.next.member
 nnoremap mm :GoNextMember<C-m>
 eclipseaction GoPrevMember org.eclipse.jdt.ui.edit.text.java.goto.previous.member
