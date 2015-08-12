@@ -33,6 +33,11 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neocomplete.vim'
 " js補完
 NeoBundle 'mattn/jscomplete-vim'
+" emment
+NeoBundle 'mattn/emmet-vim'
+" 範囲拡大
+NeoBundle 'terryma/vim-expand-region'
+
 
 " Markdown用
 NeoBundle 'plasticboy/vim-markdown'
@@ -58,13 +63,9 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 " NeoBundleCheck
 "
-" swp output directory
-set directory=$HOME/dotfiles/vimfiles/swap
-set undodir=$HOME/dotfiles/vimfiles/undo
-set backupdir=$HOME/dotfiles/vimfiles/backup
 
 au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.textile set filetype=texttile
+au BufRead,BufNewFile *.textile set filetype=textile
 ""let g:previm_open_cmd = 'open -a Firefox' これを入れておくと、previmの起動が出来ない
 " http://blog.remora.cx/2010/12/vim-ref-with-unite.html
 "
@@ -117,6 +118,22 @@ set showmatch
 set matchtime=1
 set nf=""
 
+" 20150810改変
+nnoremap <Space>w :w<CR>
+nnoremap <CR> G
+
+
+
+vmap <Space>y "+y
+vmap <Space>d "+d
+nmap <Space>p "+p
+nmap <Space>P "+P
+vmap <Space>p "+p
+vmap <Space>P "+P
+
+
+" ここまで
+
 nnoremap j gj
 nnoremap k gk
 
@@ -153,7 +170,6 @@ inoremap <c-l> <Right>
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 
-
 " コマンドモード
 cnoremap <c-f> <Right>
 cnoremap <c-b> <Left>
@@ -179,9 +195,10 @@ let g:netrw_altv = 1
 let g:netrw_alto = 1
 
 
+" Unite-outline
 nnoremap [[ :Unite -no-quit -vertical outline<CR>
 
-
+" neocomplete　補完
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -267,6 +284,10 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
-
+" js補完
 :let g:jscomplete_use = ['dom', 'moz']
 " => autoload/js/dom.vim と autoload/js/moz.vim が読まれる
+
+" 範囲拡大
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)

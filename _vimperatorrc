@@ -1,16 +1,17 @@
 set focuscontent
+set ignorecase
+style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 inoremap <C-a> <Ins><C-a><Ins>
-set complete=sl
-" Hintモードでアルファベット使用
 set hintchars=jfnvurhgytbkdmcielsxo
-" :oなどでの補完候補をサーチエンジン、履歴に限定
 set complete=sl
 " 移動幅
 noremap j 5j
 noremap k 5k
-" キャレットではやらないで
+
+" 他のモードは一行ずつ。コピーし辛い
 cnoremap j j
 cnoremap k k
+
 " VisualモードでC-gで選択しているテキストでGoogle検索
 vmap <silent> <C-g> y<Esc><Esc>P
 "============================
@@ -23,6 +24,7 @@ hi HintActive color: black; background-color: #ff8700;
 
 " デフォルトのエラー赤くてこわい＞＜
 hi ErrorMsg color:white; background-color: #ec6aa1;
- 
+
 " 勝手に検索しないで…googleさんにデータ送りたくないよ。
 noremap p <nop>
+
