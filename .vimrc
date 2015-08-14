@@ -40,7 +40,7 @@ NeoBundle 'terryma/vim-expand-region'
 
 
 " Markdown用
-NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
