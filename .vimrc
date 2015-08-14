@@ -115,11 +115,9 @@ set showmatch
 set matchtime=1
 set nf=""
 
-" 20150810改変
 nnoremap <Space>w :w<CR>
+nnoremap <Space>q :bd<CR>
 nnoremap <CR> G
-
-
 
 vmap <Space>y "+y
 vmap <Space>d "+d
@@ -127,9 +125,6 @@ nmap <Space>p "+p
 nmap <Space>P "+P
 vmap <Space>p "+p
 vmap <Space>P "+P
-
-
-" ここまで
 
 nnoremap j gj
 nnoremap k gk
@@ -193,7 +188,7 @@ let g:netrw_alto = 1
 
 
 " Unite-outline
-nnoremap [[ :Unite -no-quit -vertical outline<CR>
+command! Outline  :Unite -no-quit -vertical outline
 
 " neocomplete　補完
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
