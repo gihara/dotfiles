@@ -68,18 +68,15 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.textile set filetype=textile
 ""let g:previm_open_cmd = 'open -a Firefox' これを入れておくと、previmの起動が出来ない
 " http://blog.remora.cx/2010/12/vim-ref-with-unite.html
-"
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
 " Unit.vimの設定
 """"""""""""""""""""""""""""""
-" 入力モードで開始する
-let g:unite_enable_start_insert=1
 " バッファ一覧
-noremap <C-P> :Unite buffer<CR>
+noremap <C-P> :Unite buffer -start-insert<CR>
 " ファイル一覧
-noremap <C-N> :Unite -buffer-name=file file<CR>
+noremap <C-N> :Unite -buffer-name=file file -start-insert<CR>
 " 最近使ったファイルの一覧
-noremap <C-Z> :Unite file_mru<CR>
+noremap <C-Z> :Unite file_mru -start-insert<CR>
 " sourcesを「今開いているファイルのディレクトリ」とする
 noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
 " ウィンドウを分割して開く
