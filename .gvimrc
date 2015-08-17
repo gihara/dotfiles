@@ -17,10 +17,6 @@ set directory=$HOME/dotfiles/vimfiles/swap
 set undodir=$HOME/dotfiles/vimfiles/undo
 set backupdir=$HOME/dotfiles/vimfiles/backup
 
-
-" ウィンドウの透明度設定
-set transparency=246
-
 colorscheme solarized
 set background=dark
 
