@@ -12,11 +12,6 @@ set lines=40
 set iminsert=0
 set imsearch=-1
 
-" swp output directory
-set directory=$HOME/dotfiles/vimfiles/swap
-set undodir=$HOME/dotfiles/vimfiles/undo
-set backupdir=$HOME/dotfiles/vimfiles/backup
-
 colorscheme solarized
 set background=dark
 

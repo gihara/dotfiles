@@ -59,6 +59,11 @@ call neobundle#end()
 " Required:
 filetype plugin indent on
 
+" swp output directory
+set directory=$HOME/dotfiles/vimfiles/swap
+set undodir=$HOME/dotfiles/vimfiles/undo
+set backupdir=$HOME/dotfiles/vimfiles/backup
+
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 " NeoBundleCheck
