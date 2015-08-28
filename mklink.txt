@@ -2,13 +2,13 @@ mklink $home/dotfiles/.vimrc $home/.vimrc
 mklink $home/dotfiles/.gvimrc $home/.gvimrc
 mklink $home/dotfiles/.vimfiles $home/.vimfiles
 mklink $home/dotfiles/_vimperatorrc $home/_vimperatorrc
-mklink $home/dotfiles/.vrapperc $home/.vrapperc
+mklink $home/dotfiles/.vrapperrc $home/.vrapperrc
 
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/.gvimrc $HOME/.gvimrc
 ln -sf $HOME/dotfiles/.vimfiles $HOME/.vimfiles
 ln -sf $HOME/dotfiles/_vimperatorrc $HOME/_vimperatorrc
-ln -sf $HOME/dotfiles/.vrapperc $HOME/.vrapperc
+ln -sf $HOME/dotfiles/.vrapperrc $HOME/.vrapperrc
 
 mkdir -p $home/dotfiles/vimfiles/swap
 mkdir -p $home/dotfiles/vimfiles/undo

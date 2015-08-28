@@ -1,0 +1,53 @@
+" ちょっと便利になる方々
+nnoremap Y y$
+nnoremap <Space>q :bd<CR>
+nnoremap <Space>w :w<CR>
+nnoremap <CR> G
+nnoremap <silent>bn :bn<CR>
+
+" クリップボード操作が面倒くさい
+vmap <Space>y "+y
+vmap <Space>d "+d
+nmap <Space>p "+p
+nmap <Space>P "+P
+vmap <Space>p "+p
+vmap <Space>P "+P
+
+" 左右の画面切り替えはカーソルでできるように
+nnoremap <Left> <c-w>h
+nnoremap <Right> <c-w>l
+
+" Reset Highlight
+nnoremap <Esc><Esc> :noh<CR>
+
+" 文頭・文末への移動
+nnoremap <Space>h ^
+nnoremap <Space>l $
+vnoremap <Space>h ^
+vnoremap <Space>l $
+
+" 改行を入れる
+nnoremap <c-j> i<CR><Esc>
+
+"<space>j, <space>kで画面送り
+noremap <Space>j <C-f>
+noremap <Space>k <C-b>
+
+" 挿入モードでのカーソル移動
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+inoremap <c-h> <Left>
+inoremap <c-l> <Right>
+
+" 挿入モードで単語単位/行単位の削除をアンドゥ可能にする
+inoremap <C-u>  <C-g>u<C-u>
+inoremap <C-w>  <C-g>u<C-w>
+
+" コマンドモードをEmacsキーバインドっぽく
+cnoremap <c-f> <Right>
+cnoremap <c-b> <Left>
+cnoremap <c-a> <c-b>
+cnoremap <c-e> <c-e>
+cnoremap <c-u> <c-e><c-u>
+cnoremap <c-v> <c-f>a
+

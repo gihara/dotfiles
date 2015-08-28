@@ -1,3 +1,51 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vimの挙動設定系
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set autochdir
+set number
+set ruler
+set list
+set listchars=tab:->,trail:-,nbsp:%,extends:>
+set incsearch
+set hlsearch
+set whichwrap=h,l
+set nowrapscan
+set ignorecase
+set smartcase
+set hidden
+set history=2000
+set autoindent
+"set expandtab
+set tabstop=4
+set shiftwidth=4
+set helplang=en
+set display=lastline
+set pumheight=10
+set showmatch
+set matchtime=1
+set nf=""
+
+" 常にステータス行を表示
+set laststatus=2
+"ステータスラインに文字コードと改行文字を表示する
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+" 現在のモードを表示する
+set showmode
+
+""""""""""""""""""""""""""""""
+" vimgrep
+""""""""""""""""""""""""""""""
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
+autocmd QuickFixCmdPost *grep* cwindow
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoBundle plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
@@ -38,9 +86,8 @@ NeoBundle 'mattn/emmet-vim'
 " 範囲拡大
 NeoBundle 'terryma/vim-expand-region'
 
-
 " Markdown用
-NeoBundle 'rcmdnk/vim-markdown'
+" NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
@@ -69,12 +116,14 @@ set backupdir=$HOME/dotfiles/vimfiles/backup
 " NeoBundleCheck
 "
 
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.textile set filetype=textile
-""let g:previm_open_cmd = 'open -a Firefox' これを入れておくと、previmの起動が出来ない
-" http://blog.remora.cx/2010/12/vim-ref-with-unite.html
-"""""""""""""""""""""""""""""""
-" Unit.vimの設定
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plugin　の設定達
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Shougoさん系
+""""""""""""""""""""""""""""""
+" Unit.vim
 """"""""""""""""""""""""""""""
 " バッファ一覧
 noremap <C-P> :Unite buffer -start-insert<CR>
@@ -95,107 +144,9 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 """"""""""""""""""""""""""""""
 
-set autochdir
-set number
-set ruler
-set list
-set listchars=tab:->,trail:-,nbsp:%,extends:>
-set incsearch
-set hlsearch
-set showmatch
-set whichwrap=h,l
-set nowrapscan
-set ignorecase
-set smartcase
-set hidden
-set history=2000
-set autoindent
-"set expandtab
-set tabstop=4
-set shiftwidth=4
-set helplang=en
-set display=lastline
-set pumheight=10
-set showmatch
-set matchtime=1
-set nf=""
-
-nnoremap <Space>w :w<CR>
-nnoremap <Space>q :bd<CR>
-nnoremap <CR> G
-
-vmap <Space>y "+y
-vmap <Space>d "+d
-nmap <Space>p "+p
-nmap <Space>P "+P
-vmap <Space>p "+p
-vmap <Space>P "+P
-
-nnoremap j gj
-nnoremap k gk
-
-" 常にステータス行を表示
-set laststatus=2
-"ステータスラインに文字コードと改行文字を表示する
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-" 現在のモードを表示する
-set showmode
-" Reset Highlight
-nnoremap <Esc><Esc> :noh<CR>
-
-
-" 文頭・文末への移動
-nnoremap <Space>h ^
-nnoremap <Space>l $
-vnoremap <Space>h ^
-vnoremap <Space>l $
-
-" 改行を入れる
-nnoremap <c-j> i<CR><Esc>
-
-"<space>j, <space>kで画面送り
-noremap <Space>j <C-f>
-noremap <Space>k <C-b>
-
-" 挿入モードでのカーソル移動
-inoremap <c-j> <Down>
-inoremap <c-k> <Up>
-inoremap <c-h> <Left>
-inoremap <c-l> <Right>
-
-" 挿入モードで単語単位/行単位の削除をアンドゥ可能にする
-inoremap <C-u>  <C-g>u<C-u>
-inoremap <C-w>  <C-g>u<C-w>
-
-" コマンドモード
-cnoremap <c-f> <Right>
-cnoremap <c-b> <Left>
-cnoremap <c-a> <c-b>
-cnoremap <c-e> <c-e>
-cnoremap <c-u> <c-e><c-u>
-cnoremap <c-v> <c-f>a
-
-" vimgrep
-nnoremap [q :cprevious<CR>   " 前へ
-nnoremap ]q :cnext<CR>       " 次へ
-nnoremap [Q :<C-u>cfirst<CR> " 最初へ
-nnoremap ]Q :<C-u>clast<CR>  " 最後へ
-
-autocmd QuickFixCmdPost *grep* cwindow
-
-
-" netrwは常にtree view
-let g:netrw_liststyle = 3
-" 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
-let g:netrw_altv = 1
-" 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
-let g:netrw_alto = 1
-
-
-" Unite-outline
-command! Outline  :Unite -no-quit -vertical outline
-
-" neocomplete　補完
+""""""""""""""""""""""""""""""
+" neocomplete
+""""""""""""""""""""""""""""""
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -240,26 +191,6 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -280,11 +211,65 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+" Shougoさんここまで
 
-" js補完
+
+""""""""""""""""""""""""""""""
+" Previm.vim
+""""""""""""""""""""""""""""""
+au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.textile set filetype=textile
+""let g:previm_open_cmd = 'open -a Firefox' これを入れておくと、previmの起動が出来ない
+" http://blog.remora.cx/2010/12/vim-ref-with-unite.html
+
+
+""""""""""""""""""""""""""""""
+" Unite-outlin
+""""""""""""""""""""""""""""""
+command! Outline :Unite -no-quit -vertical  -winwidth=30 outline
+
+
+""""""""""""""""""""""""""""""
+" jscomplete
+""""""""""""""""""""""""""""""
 :let g:jscomplete_use = ['dom', 'moz']
 " => autoload/js/dom.vim と autoload/js/moz.vim が読まれる
 
-" 範囲拡大
+
+""""""""""""""""""""""""""""""
+" vim-expand-region
+""""""""""""""""""""""""""""""
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" その他
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""
+" netrw
+""""""""""""""""""""""""""""""
+" netrwは常にtree view
+let g:netrw_liststyle = 3
+" 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
+let g:netrw_altv = 1
+" 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
+let g:netrw_alto = 1
+
+""""""""""""""""""""""""""""""
+" swapがあったら読み込み専用で開く
+""""""""""""""""""""""""""""""
+augroup swapchoice-readonly
+  autocmd!
+  autocmd SwapExists * let v:swapchoice = 'o'
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 基本的なkeymapを読み込み
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+source $HOME/.vimrc_base_map
+
+" なぜかvrapperではjなどが効かない
+nnoremap j gj
+nnoremap k gk
