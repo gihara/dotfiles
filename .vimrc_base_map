@@ -1,9 +1,13 @@
+"x キー削除でデフォルトレジスタに入れない
+nnoremap x "_x
+vnoremap x "_x
+
 " ちょっと便利になる方々
 nnoremap Y y$
 nnoremap <Space>q :bd<CR>
 nnoremap <Space>w :w<CR>
 nnoremap <CR> G
-nnoremap <silent>bn :bn<CR>
+nnoremap <Space>b :bn<CR>
 
 " クリップボード操作が面倒くさい
 vmap <Space>y "+y
