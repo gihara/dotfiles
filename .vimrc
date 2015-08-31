@@ -85,6 +85,8 @@ NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'mattn/emmet-vim'
 " 範囲拡大
 NeoBundle 'terryma/vim-expand-region'
+" statuslineをかっこよく
+NeoBundle 'itchyny/lightline.vim'
 
 " Markdown用
 " NeoBundle 'plasticboy/vim-markdown'
