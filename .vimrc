@@ -1,3 +1,4 @@
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimの挙動設定系
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -79,6 +80,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Shougo/unite-outline'
 " 補完
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/vimshell.vim'
 " js補完
 NeoBundle 'mattn/jscomplete-vim'
 " emment
