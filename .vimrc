@@ -91,13 +91,8 @@ NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'itchyny/lightline.vim'
 " diffをよりよく
 NeoBundle 'tpope/vim-fugitive'
-" Goで遊ぼう
-NeoBundle 'vim-jp/vim-go-extra'
+" syntax
 NeoBundle 'scrooloose/syntastic'
-
-let g:syntastic_mode_map = { 'mode': 'passive',
-    \ 'active_filetypes': ['go'] }
-let g:syntastic_go_checkers = ['go', 'golint']
 
 " Markdown用
 " NeoBundle 'plasticboy/vim-markdown'
