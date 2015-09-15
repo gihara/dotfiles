@@ -1,8 +1,10 @@
+colorscheme desert " shから呼び出した時に、怒られるから
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimの挙動設定系
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autochdir
+set autochdir "vimshellを使うならコメントアウト
 set number
 set ruler
 set list
@@ -33,17 +35,6 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 " 現在のモードを表示する
 set showmode
 
-""""""""""""""""""""""""""""""
-" vimgrep
-""""""""""""""""""""""""""""""
-nnoremap [q :cprevious<CR>   " 前へ
-nnoremap ]q :cnext<CR>       " 次へ
-nnoremap [Q :<C-u>cfirst<CR> " 最初へ
-nnoremap ]Q :<C-u>clast<CR>  " 最後へ
-
-autocmd QuickFixCmdPost *grep* cwindow
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -69,7 +60,7 @@ NeoBundle 'Shougo/unite.vim'
 " Unite.vimで最近使ったファイルを表示できるようにする
 NeoBundle 'Shougo/neomru.vim'
 " ファイルをtree表示してくれる
-NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'scrooloose/nerdtree'
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
 " シングルクオートとダブルクオートの入れ替え等
@@ -80,6 +71,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Shougo/unite-outline'
 " 補完
 NeoBundle 'Shougo/neocomplete.vim'
+" vimshell
 NeoBundle 'Shougo/vimshell.vim'
 " js補完
 NeoBundle 'mattn/jscomplete-vim'
@@ -87,7 +79,7 @@ NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'mattn/emmet-vim'
 " 範囲拡大
 NeoBundle 'terryma/vim-expand-region'
-" statuslineをかっこよく
+" statuslineをおしゃれに
 NeoBundle 'itchyny/lightline.vim'
 " diffをよりよく
 NeoBundle 'tpope/vim-fugitive'
@@ -118,11 +110,6 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 " NeoBundleCheck
 "
-
-" swp output directory
-set directory=$HOME/dotfiles/vimfiles/swap
-set undodir=$HOME/dotfiles/vimfiles/undo
-set backupdir=$HOME/dotfiles/vimfiles/backup
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -240,7 +227,7 @@ command! Outline :Unite -no-quit -vertical  -winwidth=30 outline
 """"""""""""""""""""""""""""""
 " jscomplete
 """"""""""""""""""""""""""""""
-:let g:jscomplete_use = ['dom', 'moz']
+let g:jscomplete_use = ['dom', 'moz']
 " => autoload/js/dom.vim と autoload/js/moz.vim が読まれる
 
 
@@ -251,19 +238,39 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
 
+""""""""""""""""""""""""""""""
+" tcomment_vim
+""""""""""""""""""""""""""""""
+nnoremap <Space>/ :TComment<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 独自コマンド
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! RC :e $MYVIMRC " vimrcを開きやすく
+command! D :%d " %打ちづらい
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " その他
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" "0p は打ちづらい。良く使うのに
+nnoremap 0p "0p
+vnoremap 0p "0p
+
+
+" teraterm的な動作を
+vmap <CR> "+y
+nnoremap <RIGHTMOUSE> "+P
+
 """"""""""""""""""""""""""""""
-" netrw
+" vimgrep
 """"""""""""""""""""""""""""""
-" netrwは常にtree view
-let g:netrw_liststyle = 3
-" 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
-let g:netrw_altv = 1
-" 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
-let g:netrw_alto = 1
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
+autocmd QuickFixCmdPost *grep* cwindow
 
 """"""""""""""""""""""""""""""
 " swapがあったら読み込み専用で開く
