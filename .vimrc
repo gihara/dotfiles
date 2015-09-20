@@ -111,6 +111,11 @@ filetype plugin indent on
 " NeoBundleCheck
 "
 
+" swp output directory
+set directory=$HOME/dotfiles/vimfiles/swap
+set undodir=$HOME/dotfiles/vimfiles/undo
+set backupdir=$HOME/dotfiles/vimfiles/backup
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugin　の設定達

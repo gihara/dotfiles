@@ -1,8 +1,10 @@
-mklink $home/dotfiles/.vimrc $home/.vimrc
-mklink $home/dotfiles/.gvimrc $home/.gvimrc
-mklink $home/dotfiles/.vimfiles $home/.vimfiles
-mklink $home/dotfiles/_vimperatorrc $home/_vimperatorrc
-mklink $home/dotfiles/.vrapperrc $home/.vrapperrc
+mklink C:\Users\${USER}\.vimrc C:\Users\${USER}\dotfiles\.vimrc
+mklink C:\Users\${USER}\.gvimrc C:\Users\${USER}\dotfiles\.gvimrc
+mklink C:\Users\${USER}\.vimfiles C:\Users\${USER}\dotfiles\.vimfiles
+mklink C:\Users\${USER}\_vimperatorrc C:\Users\${USER}\dotfiles\_vimperatorrc
+mklink C:\Users\${USER}\.vrapperrc C:\Users\${USER}\dotfiles\.vrapperrc
+mklink C:\Users\${USER}\.ideavimrc C:\Users\${USER}\dotfiles\.ideavimrc
+mklink C:\Users\${USER}\.vimrc_base_map C:\Users\${USER}\dotfiles\.vimrc_base_map
 
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/.gvimrc $HOME/.gvimrc
@@ -10,6 +12,7 @@ ln -sf $HOME/dotfiles/.vimfiles $HOME/.vimfiles
 ln -sf $HOME/dotfiles/_vimperatorrc $HOME/_vimperatorrc
 ln -sf $HOME/dotfiles/.vrapperrc $HOME/.vrapperrc
 ln -sf $HOME/dotfiles/.ideavimrc $HOME/.ideavimrc
+ln -sf $HOME/dotfiles/.vimrc_base_map $HOME/.vimrc_base_map
 
 mkdir -p $home/dotfiles/vimfiles/swap
 mkdir -p $home/dotfiles/vimfiles/undo
