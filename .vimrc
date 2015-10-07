@@ -262,7 +262,6 @@ command! D :%d " %打ちづらい
 nnoremap 0p "0p
 vnoremap 0p "0p
 
-
 " teraterm的な動作を
 vmap <CR> "+y
 nnoremap <RIGHTMOUSE> "+P
@@ -290,6 +289,6 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source $HOME/.vimrc_base_map
 
-" なぜかvrapperではjなどが効かない
+" .vimrc_base_mapに入れたら、vrapperで動かなくなった。。。
 nnoremap j gj
 nnoremap k gk

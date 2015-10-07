@@ -37,12 +37,6 @@ nnoremap <c-j> i<CR><Esc>
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
-" 挿入モードでのカーソル移動
-inoremap <c-j> <Down>
-inoremap <c-k> <Up>
-inoremap <c-h> <Left>
-inoremap <c-l> <Right>
-
 " 挿入モードで単語単位/行単位の削除をアンドゥ可能にする
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
