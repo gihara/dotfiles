@@ -85,6 +85,8 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tpope/vim-fugitive'
 " syntax
 NeoBundle 'scrooloose/syntastic'
+" quickrun
+NeoBundle 'thinca/vim-quickrun'
 
 " Markdown用
 " NeoBundle 'plasticboy/vim-markdown'
@@ -247,6 +249,16 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " tcomment_vim
 """"""""""""""""""""""""""""""
 nnoremap <Space>/ :TComment<CR>
+
+
+""""""""""""""""""""""""""""""
+" quickrun
+""""""""""""""""""""""""""""""
+let g:quickrun_config = {'*':{'split': ''}}
+let g:quickrun_no_default_key_mappings = 1
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
+nnoremap <Space>r :write<CR>:QuickRun -mode n<CR>
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 独自コマンド
