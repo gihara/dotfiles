@@ -249,6 +249,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " tcomment_vim
 """"""""""""""""""""""""""""""
 nnoremap <Space>/ :TComment<CR>
+vnoremap <Space>/ :TComment<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -304,3 +305,8 @@ source $HOME/.vimrc_base_map
 " .vimrc_base_mapに入れたら、vrapperで動かなくなった。。。
 nnoremap j gj
 nnoremap k gk
+
+" rubyで遊ぼう
+let g:neocomplete#sources#dictionary#dictionaries = {
+\   'ruby': $HOME . '/dicts/ruby.dict',
+\ }
