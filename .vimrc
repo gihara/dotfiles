@@ -28,10 +28,6 @@ endif
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
 "*****************************************************************************
 "" NeoBundle install packages
 "*****************************************************************************
@@ -90,7 +86,38 @@ NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'c9s/perlomni.vim'
 
 
+" Let NeoBundle manage NeoBundle
+" Required:
+let g:neobundle_default_git_protocol='https'
+NeoBundle 'Shougo/unite.vim'
+" Unite.vimで最近使ったファイルを表示できるようにする
+NeoBundle 'Shougo/neomru.vim'
+" ファイルをtree表示してくれる
+" NeoBundle 'scrooloose/nerdtree'
+" コメントON/OFFを手軽に実行
+NeoBundle 'tomtom/tcomment_vim'
+" シングルクオートとダブルクオートの入れ替え等
+NeoBundle 'tpope/vim-surround'
+" インデントに色を付けて見やすくする
+NeoBundle 'nathanaelkane/vim-indent-guides'
+" アウトラインを表示
+NeoBundle 'Shougo/unite-outline'
+" 補完
+NeoBundle 'Shougo/neocomplete.vim'
+" 範囲拡大
+NeoBundle 'terryma/vim-expand-region'
+" statuslineをおしゃれに
+NeoBundle 'itchyny/lightline.vim'
+" quickrun
+NeoBundle 'thinca/vim-quickrun'
 
+" Markdown用
+" NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
+" Solarized
+NeoBundle 'altercation/vim-colors-solarized'
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
   source ~/.vimrc.local.bundles
@@ -240,41 +267,10 @@ nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
-" Let NeoBundle manage NeoBundle
-" Required:
-let g:neobundle_default_git_protocol='https'
-NeoBundle 'Shougo/unite.vim'
-" Unite.vimで最近使ったファイルを表示できるようにする
-NeoBundle 'Shougo/neomru.vim'
-" ファイルをtree表示してくれる
-" NeoBundle 'scrooloose/nerdtree'
-" コメントON/OFFを手軽に実行
-NeoBundle 'tomtom/tcomment_vim'
-" シングルクオートとダブルクオートの入れ替え等
-NeoBundle 'tpope/vim-surround'
-" インデントに色を付けて見やすくする
-NeoBundle 'nathanaelkane/vim-indent-guides'
-" アウトラインを表示
-NeoBundle 'Shougo/unite-outline'
-" 補完
-NeoBundle 'Shougo/neocomplete.vim'
-" 範囲拡大
-NeoBundle 'terryma/vim-expand-region'
-" statuslineをおしゃれに
-NeoBundle 'itchyny/lightline.vim'
-" quickrun
-NeoBundle 'thinca/vim-quickrun'
-
-" Markdown用
-" NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
 " vimshell.vim
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
 
-" Solarized
-NeoBundle 'altercation/vim-colors-solarized'
 " terminal emulation
 if g:vim_bootstrap_editor == 'nvim'
   nnoremap <silent> <leader>sh :terminal<CR>
@@ -285,11 +281,6 @@ endif
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
 
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-call neobundle#end()
 
 " Required:
 filetype plugin indent on
@@ -300,9 +291,7 @@ filetype plugin indent on
 "
 
 " swp output directory
-set directory=$HOME/dotfiles/vimfiles/swap
 set undodir=$HOME/dotfiles/vimfiles/undo
-set backupdir=$HOME/dotfiles/vimfiles/backup
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
