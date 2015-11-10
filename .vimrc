@@ -22,17 +22,7 @@ if !filereadable(neobundle_readme)
   let g:not_finsh_neobundle = "yes"
 
   " Run shell script if exist on custom select language
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
 endif
 
 " Required:
@@ -48,44 +38,22 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
 
-"" Vim-Session
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-session'
-
-if v:version >= 703
-  NeoBundle 'Shougo/vimshell.vim'
-endif
-
+"" Snippets
 if v:version >= 704
-  "" Snippets
   NeoBundle 'SirVer/ultisnips'
-  NeoBundle 'FelikZ/ctrlp-py-matcher'
 endif
 
 NeoBundle 'honza/vim-snippets'
 
 "" Color
 NeoBundle 'tomasr/molokai'
-
-"" Vim-Bootstrap Updater
-NeoBundle 'sherzberg/vim-bootstrap-updater'
 
 "" Custom bundles
 
@@ -95,11 +63,15 @@ NeoBundle "scrooloose/syntastic"
 NeoBundle "majutsushi/tagbar"
 NeoBundle "Yggdroot/indentLine"
 
+if v:version >= 703
+  NeoBundle 'Shougo/vimshell.vim'
+endif
 
 "" Go Lang Bundle
 NeoBundle "majutsushi/tagbar"
 NeoBundle "fatih/vim-go"
 
+"" Custom bundles
 
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
@@ -175,12 +147,6 @@ set fileformats=unix,dos,mac
 set showcmd
 set shell=/bin/sh
 
-" session management
-let g:session_directory = "~/.vim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
@@ -234,18 +200,6 @@ set modelines=10
 set title
 set titleold="Terminal"
 set titlestring=%F
-
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-
-if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
-endif
-
-" vim-airline
-let g:airline_theme = 'powerlineish'
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
 
 "*****************************************************************************
 "" Abbreviations
@@ -349,12 +303,6 @@ noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
-" session management
-nnoremap <leader>so :OpenSession
-nnoremap <leader>ss :SaveSession
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
@@ -369,17 +317,6 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-"" ctrlp.vim
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|tox|ico|git|hg|svn))$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 0
-cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_map = '<leader>e'
-let g:ctrlp_open_new_file = 'r'
-
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -388,10 +325,10 @@ let g:UltiSnipsEditSplit="vertical"
 
 " syntastic
 let g:syntastic_always_populate_loc_list=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_error_symbol='△'
+let g:syntastic_warning_symbol='△'
+let g:syntastic_style_error_symbol = '×'
+let g:syntastic_style_warning_symbol = '△'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
@@ -440,9 +377,6 @@ vmap > >gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-"" Open current line on GitHub
-noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
-
 "" Custom configs
 
 " vim-python
@@ -466,10 +400,6 @@ let g:jedi#completions_command = "<C-Space>"
 " syntastic
 let g:syntastic_python_checkers=['python', 'flake8']
 let g:syntastic_python_flake8_post_args='--ignore=W391'
-
-" vim-airline
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -562,42 +492,3 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-"*****************************************************************************
-"" Convenience variables
-"*****************************************************************************
-
-" vim-airline
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-if !exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline_left_sep          = '▶'
-  let g:airline_left_alt_sep      = '»'
-  let g:airline_right_sep         = '◀'
-  let g:airline_right_alt_sep     = '«'
-  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-  let g:airline#extensions#readonly#symbol   = '⊘'
-  let g:airline#extensions#linecolumn#prefix = '¶'
-  let g:airline#extensions#paste#symbol      = 'ρ'
-  let g:airline_symbols.linenr    = '␊'
-  let g:airline_symbols.branch    = '⎇'
-  let g:airline_symbols.paste     = 'ρ'
-  let g:airline_symbols.paste     = 'Þ'
-  let g:airline_symbols.paste     = '∥'
-  let g:airline_symbols.whitespace = 'Ξ'
-else
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
-
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
-endif
