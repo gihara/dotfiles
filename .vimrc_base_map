@@ -1,3 +1,6 @@
+"" Map leader to ,
+let mapleader=','
+
 "x キー削除でデフォルトレジスタに入れない
 nnoremap x "_x
 vnoremap x "_x
@@ -11,6 +14,7 @@ nnoremap <Space>b :bn<CR>
 
 " クリップボード操作が面倒くさい
 vmap <Space>y "+y
+vmap <Space>x "+x
 vmap <Space>d "+d
 nmap <Space>p "+p
 nmap <Space>P "+P
@@ -37,9 +41,15 @@ nnoremap <c-j> i<CR><Esc>
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
-" 挿入モードで単語単位/行単位の削除をアンドゥ可能にする
-inoremap <C-u>  <C-g>u<C-u>
-inoremap <C-w>  <C-g>u<C-w>
+" 挿入モードでのカーソル移動
+inoremap <c-u> <c-o>u
+inoremap <c-n> <Down>
+inoremap <c-p> <Up>
+inoremap <c-b> <Left>
+inoremap <c-f> <Right>
+inoremap <c-a> <HOME>
+inoremap <c-e> <END>
+inoremap <c-h> <Backspace>
 
 " コマンドモードをEmacsキーバインドっぽく
 cnoremap <c-f> <Right>
@@ -48,4 +58,32 @@ cnoremap <c-a> <c-b>
 cnoremap <c-e> <c-e>
 cnoremap <c-u> <c-e><c-u>
 cnoremap <c-v> <c-f>a
+cnoremap <c-h> <Backspace>
 
+" "0p は打ちづらい。良く使うのに
+nnoremap 0p "0p
+vnoremap 0p "0p
+
+
+" 以下、bootstrap で入ってきたもの
+"*****************************************************************************
+"" Abbreviations
+"*****************************************************************************
+"" Switching windows
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+
+"" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
+"" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+"" Tabs
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+nnoremap <silent> <S-t> :tabnew<CR>
