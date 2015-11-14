@@ -8,7 +8,7 @@ mklink C:\Users\${USER}\.vimrc_base_map C:\Users\${USER}\dotfiles\.vimrc_base_ma
 
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/.gvimrc $HOME/.gvimrc
-ln -sf $HOME/dotfiles/.vimfiles $HOME/.vimfiles
+ln -sf $HOME/dotfiles/vimfiles $HOME/.vimfiles
 ln -sf $HOME/dotfiles/_vimperatorrc $HOME/_vimperatorrc
 ln -sf $HOME/dotfiles/.vrapperrc $HOME/.vrapperrc
 ln -sf $HOME/dotfiles/.ideavimrc $HOME/.ideavimrc
