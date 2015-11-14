@@ -34,7 +34,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
+" NeoBundle 'airblade/vim-gitgutter' なんか重い？？必要だと思ったら使う。
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
@@ -96,9 +96,12 @@ NeoBundle 'tomtom/tcomment_vim'
 " シングルクオートとダブルクオートの入れ替え等
 NeoBundle 'tpope/vim-surround'
 " インデントに色を付けて見やすくする
-" NeoBundle 'nathanaelkane/vim-indent-guides' ""
+" NeoBundle 'nathanaelkane/vim-indent-guides' "しばらくはindentLineを使ってみる
 " アウトラインを表示
 NeoBundle 'Shougo/unite-outline'
+" snippet
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 " 補完
 NeoBundle 'Shougo/neocomplete.vim'
 " 範囲拡大
@@ -344,6 +347,27 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+
+" NeoSnippet
+
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 " Shougoさんここまで
 
 
