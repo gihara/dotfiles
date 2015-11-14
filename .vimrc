@@ -37,9 +37,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
-NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'jiangmiao/auto-pairs' "gvimrc　にset imdisableが必要
 
 "" Snippets
 if v:version >= 704
@@ -634,7 +633,7 @@ vnoremap <leader>rem  :RExtractMethod<cr>
 
 
 "" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
+if filereadable(expand("~/.vimrc_base_map"))
   source ~/.vimrc_base_map
 endif
 

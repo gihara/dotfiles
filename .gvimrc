@@ -3,6 +3,7 @@ set formatoptions=q
 
 set iminsert=0
 set imsearch=-1
+set imdisable " autopairのため
 " ウインドウの幅
 set columns=130
 " ウインドウの高さ
