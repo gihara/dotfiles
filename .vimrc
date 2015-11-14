@@ -48,9 +48,6 @@ endif
 
 NeoBundle 'honza/vim-snippets'
 
-"" Color
-NeoBundle 'tomasr/molokai'
-
 "" Custom bundles
 
 "" Python Bundle
@@ -82,6 +79,7 @@ NeoBundle "majutsushi/tagbar"
 NeoBundle "ecomba/vim-ruby-refactoring"
 
 
+"" Perl Bundle
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'c9s/perlomni.vim'
 
@@ -99,7 +97,7 @@ NeoBundle 'tomtom/tcomment_vim'
 " シングルクオートとダブルクオートの入れ替え等
 NeoBundle 'tpope/vim-surround'
 " インデントに色を付けて見やすくする
-NeoBundle 'nathanaelkane/vim-indent-guides'
+" NeoBundle 'nathanaelkane/vim-indent-guides' ""
 " アウトラインを表示
 NeoBundle 'Shougo/unite-outline'
 " 補完
@@ -112,12 +110,12 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'thinca/vim-quickrun'
 
 " Markdown用
-" NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
 " Solarized
 NeoBundle 'altercation/vim-colors-solarized'
+
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
   source ~/.vimrc.local.bundles
@@ -187,35 +185,16 @@ set ruler
 set number
 
 let no_buffers_menu=1
-if !exists('g:not_finsh_neobundle')
-  colorscheme molokai
-endif
 
 set mousemodel=popup
 set t_Co=256
 set cursorline
-set guioptions=egmrti
-set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
     set guifont=Menlo:h12
     set transparency=7
   endif
-else
-  let g:CSApprox_loaded = 1
-
-  if $COLORTERM == 'gnome-terminal'
-    set term=gnome-256color
-  else
-    if $TERM == 'xterm'
-      set term=xterm-256color
-    endif
-  endif
-endif
-
-if &term =~ '256color'
-  set t_ut=
 endif
 
 "" Disable the blinking cursor.
@@ -238,17 +217,6 @@ set titlestring=%F
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
-"" no one is really happy until you have this shortcuts
-cnoreabbrev W! w!
-cnoreabbrev Q! q!
-cnoreabbrev Qall! qall!
-cnoreabbrev Wq wq
-cnoreabbrev Wa wa
-cnoreabbrev wQ wq
-cnoreabbrev WQ wq
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev Qall qall
 
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2
@@ -277,18 +245,6 @@ if g:vim_bootstrap_editor == 'nvim'
 else
   nnoremap <silent> <leader>sh :VimShellCreate<CR>
 endif
-
-" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup = 1
-
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-" NeoBundleCheck
-"
 
 " swp output directory
 set undodir=$HOME/dotfiles/vimfiles/undo
@@ -339,6 +295,7 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'ruby': $HOME . '/dicts/ruby.dict',
     \ 'scheme' : $HOME.'/.gosh_completions'
         \ }
 
@@ -446,9 +403,9 @@ command! D :%d " %打ちづらい
 " その他
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" "0p は打ちづらい。良く使うのに
-nnoremap 0p "0p
-vnoremap 0p "0p
+" .vimrc_base_mapに入れたら、vrapperで動かなくなった。。。
+nnoremap j gj
+nnoremap k gk
 
 " teraterm的な動作を
 vmap <CR> "+y
@@ -461,6 +418,7 @@ nnoremap [q :cprevious<CR>   " 前へ
 nnoremap ]q :cnext<CR>       " 次へ
 nnoremap [Q :<C-u>cfirst<CR> " 最初へ
 nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
 "*****************************************************************************
 "" Functions
 "*****************************************************************************
@@ -482,19 +440,7 @@ augroup swapchoice-readonly
   autocmd SwapExists * let v:swapchoice = 'o'
 augroup END
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 基本的なkeymapを読み込み
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source $HOME/.vimrc_base_map
 
-" .vimrc_base_mapに入れたら、vrapperで動かなくなった。。。
-nnoremap j gj
-nnoremap k gk
-
-" rubyで遊ぼう
-let g:neocomplete#sources#dictionary#dictionaries = {
-\   'ruby': $HOME . '/dicts/ruby.dict',
-\ }
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
@@ -528,10 +474,6 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
-"" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
-
 "" Git
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
@@ -541,11 +483,6 @@ noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
-
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -580,41 +517,11 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
-noremap YY "+y<CR>
-noremap <leader>p "+gP<CR>
-noremap XX "+x<CR>
-
 if has('macunix')
   " pbcopy for OSX copy/paste
   vmap <C-x> :!pbcopy<CR>
   vmap <C-c> :w !pbcopy<CR><CR>
 endif
-
-"" Buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
-
-"" Close buffer
-noremap <leader>c :bd<CR>
-
-"" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
-
-"" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-
-"" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
-
-"" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 
 "" Custom configs
 
@@ -728,6 +635,6 @@ vnoremap <leader>rem  :RExtractMethod<cr>
 
 "" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
+  source ~/.vimrc_base_map
 endif
 
