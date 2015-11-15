@@ -42,14 +42,18 @@ noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
 " 挿入モードでのカーソル移動
-inoremap <c-u> <c-o>u
+inoremap <c-x><c-u> <c-o>u
 inoremap <c-n> <Down>
 inoremap <c-p> <Up>
 inoremap <c-b> <Left>
 inoremap <c-f> <Right>
 inoremap <c-a> <HOME>
 inoremap <c-e> <END>
-inoremap <c-h> <Backspace>
+inoremap <c-h> <BS>
+inoremap <C-d> <Del>
+inoremap <C-k> <C-o>D<Right>
+inoremap <C-u> <C-o>d^
+inoremap <C-w> <C-o>db
 
 " コマンドモードをEmacsキーバインドっぽく
 cnoremap <c-f> <Right>
