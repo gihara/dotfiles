@@ -10,6 +10,7 @@ nnoremap Y y$
 nnoremap <Space>q :bd<CR>
 nnoremap <Space>w :w<CR>
 nnoremap <CR> G
+inoremap <C-w> <C-o>db
 nnoremap <Space>b :bn<CR>
 
 " クリップボード操作が面倒くさい
