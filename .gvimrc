@@ -1,8 +1,6 @@
 set nowrap
 set formatoptions=q
 
-set iminsert=0
-set imsearch=-1
 " set imdisable 
 " ウインドウの幅
 set columns=130
