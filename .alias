@@ -1,0 +1,15 @@
+# git 系
+alias pull='git pull'
+alias push='git push'
+alias st='git status'
+alias stt='git status -uno'
+
+# コマンド系
+alias la='ls -a'
+alias ll='ls -l'
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias mkdir='mkdir -p'
