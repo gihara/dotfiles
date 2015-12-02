@@ -13,3 +13,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 alias mkdir='mkdir -p'
+
+# tailfを入れたいな・・・
+alias tailf='tail -f'
