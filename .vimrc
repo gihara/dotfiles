@@ -81,8 +81,6 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'terryma/vim-expand-region'
 " statuslineをおしゃれに
 NeoBundle 'itchyny/lightline.vim'
-" diffをよりよく
-NeoBundle 'tpope/vim-fugitive'
 " syntax
 NeoBundle 'scrooloose/syntastic'
 " quickrun
