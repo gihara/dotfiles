@@ -251,6 +251,13 @@ vnoremap <Space>/ :TComment<CR>
 
 
 """"""""""""""""""""""""""""""
+" openbrowser
+""""""""""""""""""""""""""""""
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
+""""""""""""""""""""""""""""""
 " quickrun
 """"""""""""""""""""""""""""""
 let g:quickrun_config = {'*':{'split': ''}}
