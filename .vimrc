@@ -246,7 +246,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 """"""""""""""""""""""""""""""
 " tcomment_vim
 """"""""""""""""""""""""""""""
-nnoremap <Space>/ :TComment<CR>
+nnoremap <Ctl>/ :TComment<CR>
 vnoremap <Space>/ :TComment<CR>
 
 
@@ -275,10 +275,6 @@ command! D :%d " %打ちづらい
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " その他
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" "0p は打ちづらい。良く使うのに
-nnoremap 0p "0p
-vnoremap 0p "0p
 
 " teraterm的な動作を
 vmap <CR> "+y
