@@ -85,6 +85,12 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'scrooloose/syntastic'
 " quickrun
 NeoBundle 'thinca/vim-quickrun'
+" 画面の大きさ変更を楽に。
+NeoBundle 'simeji/winresizer'
+" JunkFile
+NeoBundle 'Shougo/junkfile.vim'
+" todolist
+NeoBundle 'davidoc/taskpaper.vim'
 
 " Markdown用
 " NeoBundle 'plasticboy/vim-markdown'
@@ -246,7 +252,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 """"""""""""""""""""""""""""""
 " tcomment_vim
 """"""""""""""""""""""""""""""
-nnoremap <Ctl>/ :TComment<CR>
+nnoremap <Space>/ :TComment<CR>
 vnoremap <Space>/ :TComment<CR>
 
 
