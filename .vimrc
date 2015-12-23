@@ -75,6 +75,13 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimshell.vim'
 " js補完
 NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'pangloss/vim-javascript'
+" css3ハイライト
+NeoBundle 'JulesWang/css.vim'
+" ワーキングドラフトになっているものもハイライト
+NeoBundle 'hail2u/vim-css3-syntax'
+" CSSの配色を実際にVimで表現する
+NeoBundle 'gorodinskiy/vim-coloresque'
 " emment
 NeoBundle 'mattn/emmet-vim'
 " 範囲拡大
@@ -82,7 +89,7 @@ NeoBundle 'terryma/vim-expand-region'
 " statuslineをおしゃれに
 NeoBundle 'itchyny/lightline.vim'
 " syntax
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
 " quickrun
 NeoBundle 'thinca/vim-quickrun'
 " 画面の大きさ変更を楽に。
@@ -285,6 +292,7 @@ command! D :%d " %打ちづらい
 " teraterm的な動作を
 vmap <CR> "+y
 nnoremap <RIGHTMOUSE> "+P
+vnoremap <RIGHTMOUSE> "+P
 
 """"""""""""""""""""""""""""""
 " vimgrep
