@@ -92,8 +92,6 @@ NeoBundle 'itchyny/lightline.vim'
 " NeoBundle 'scrooloose/syntastic'
 " quickrun
 NeoBundle 'thinca/vim-quickrun'
-" 画面の大きさ変更を楽に。
-NeoBundle 'simeji/winresizer'
 " JunkFile
 NeoBundle 'Shougo/junkfile.vim'
 " todolist

@@ -69,6 +69,11 @@ cnoremap <c-h> <Backspace>
 nnoremap 0p "0p
 vnoremap 0p "0p
 
+"" 画面サイズの変更
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
 
 " 以下、bootstrap で入ってきたもの
 "*****************************************************************************
@@ -92,3 +97,4 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
+
