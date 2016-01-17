@@ -3,7 +3,6 @@ colorscheme desert " shから呼び出した時に、怒られるから
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimの挙動設定系
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set autochdir
 set autochdir "vimshellを使うならコメントアウト
 set number
 set ruler
@@ -123,9 +122,9 @@ filetype plugin indent on
 "
 
 " swp output directory
-set directory=$HOME/dotfiles/vimfiles/swap
-set undodir=$HOME/dotfiles/vimfiles/undo
-set backupdir=$HOME/dotfiles/vimfiles/backup
+set directory=~/dotfiles/vimfiles/swap
+set undodir=~/dotfiles/vimfiles/undo
+set backupdir=~/dotfiles/vimfiles/backup
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

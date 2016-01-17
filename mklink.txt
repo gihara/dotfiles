@@ -1,10 +1,10 @@
-mklink C:\Users\${USER}\.vimrc C:\Users\${USER}\dotfiles\.vimrc
-mklink C:\Users\${USER}\.gvimrc C:\Users\${USER}\dotfiles\.gvimrc
-mklink C:\Users\${USER}\.vimfiles C:\Users\${USER}\dotfiles\.vimfiles
-mklink C:\Users\${USER}\_vimperatorrc C:\Users\${USER}\dotfiles\_vimperatorrc
-mklink C:\Users\${USER}\.vrapperrc C:\Users\${USER}\dotfiles\.vrapperrc
-mklink C:\Users\${USER}\.ideavimrc C:\Users\${USER}\dotfiles\.ideavimrc
-mklink C:\Users\${USER}\.vimrc_base_map C:\Users\${USER}\dotfiles\.vimrc_base_map
+mklink %HOME%\.vimrc %HOME%\dotfiles\.vimrc
+mklink %HOME%\.gvimrc %HOME%\dotfiles\.gvimrc
+mklink %HOME%\.vimfiles %HOME%\dotfiles\.vimfiles
+mklink %HOME%\_vimperatorrc %HOME%\dotfiles\_vimperatorrc
+mklink %HOME%\.vrapperrc %HOME%\dotfiles\.vrapperrc
+mklink %HOME%\.ideavimrc %HOME%\dotfiles\.ideavimrc
+mklink %HOME%\.vimrc_base_map %HOME%\dotfiles\.vimrc_base_map
 
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/.gvimrc $HOME/.gvimrc
@@ -14,6 +14,13 @@ ln -sf $HOME/dotfiles/.vrapperrc $HOME/.vrapperrc
 ln -sf $HOME/dotfiles/.ideavimrc $HOME/.ideavimrc
 ln -sf $HOME/dotfiles/.vimrc_base_map $HOME/.vimrc_base_map
 
+mkdir  %HOME%\dotfiles\vimfiles\backup
+mkdir  %HOME%\dotfiles\vimfiles\undo
+mkdir  %HOME%\dotfiles\vimfiles\backup
+
 mkdir -p $home/dotfiles/vimfiles/swap
 mkdir -p $home/dotfiles/vimfiles/undo
 mkdir -p $home/dotfiles/vimfiles/backup
+
+git config --global include.path ~/dotfiles/.gitconfig
+
