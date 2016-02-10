@@ -59,7 +59,7 @@ NeoBundle 'Shougo/unite.vim'
 " Unite.vimで最近使ったファイルを表示できるようにする
 NeoBundle 'Shougo/neomru.vim'
 " ファイルをtree表示してくれる
-" NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree'
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
 " シングルクオートとダブルクオートの入れ替え等
@@ -279,7 +279,7 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 独自コマンド
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! RC :e $MYVIMRC " vimrcを開きやすく
+command! RC :tabnew $MYVIMRC " vimrcを開きやすく
 command! D :%d " %打ちづらい
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
