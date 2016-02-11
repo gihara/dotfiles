@@ -14,3 +14,9 @@ set imsearch=-1
 colorscheme solarized
 set background=dark
 
+if has('win32') || has ('win64')
+	set guifont=Migu_1M:h12
+	set transparency=220
+	autocmd FocusGained * set transparency=220
+	autocmd FocusLost * set transparency=128
+endif
