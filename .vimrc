@@ -276,6 +276,11 @@ au FileType qf nnoremap <silent><buffer>q :quit<CR>
 nnoremap <Space>r :write<CR>:QuickRun -mode n<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
+""""""""""""""""""""""""""""""
+" NERDTREE
+""""""""""""""""""""""""""""""
+map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 独自コマンド
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
