@@ -22,5 +22,5 @@ if has('win32') || has ('win64')
 elseif has('mac')
 	set transparency=10
 	autocmd FocusGained * set transparency=10
-	autocmd FocusLost * set transparency=40
+	autocmd FocusLost * set transparency=30
 endif
