@@ -13,6 +13,15 @@ nnoremap <CR> G
 inoremap <C-w> <C-o>db
 nnoremap <Space>b :bn<CR>
 
+" <Space>v で1行選択(\n含まず)
+noremap <Space>v 0v$h
+" <Space>s で置換
+noremap <Space>s :%s/
+
+" こいつらは危ない
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+
 " クリップボード操作が面倒くさい
 vmap <Space>y "+y
 vmap <Space>x "+x
