@@ -103,6 +103,9 @@ NeoBundle 'davidoc/taskpaper.vim'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
+" easy-motion
+NeoBundle 'easymotion/vim-easymotion'
+
 " Solarized
 NeoBundle 'altercation/vim-colors-solarized'
 
@@ -283,6 +286,18 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 """"""""""""""""""""""""""""""
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+""""""""""""""""""""""""""""""
+" easy-motion
+""""""""""""""""""""""""""""""
+" <Leader>f{char} to move to {char}
+map  <Space>F <Plug>(easymotion-bd-f)
+nmap <Space>F <Plug>(easymotion-overwin-f)
+
+" Move to word
+map  <Space>f <Plug>(easymotion-bd-w)
+nmap <Space>f <Plug>(easymotion-overwin-w)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 独自コマンド
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
