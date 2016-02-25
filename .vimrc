@@ -55,8 +55,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 let g:neobundle_default_git_protocol='https'
-NeoBundle 'scrooloose/nerdtree'
-" NERDTREE
 NeoBundle 'Shougo/unite.vim'
 " Unite.vimで最近使ったファイルを表示できるようにする
 NeoBundle 'Shougo/neomru.vim'
