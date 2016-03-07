@@ -309,7 +309,12 @@ command! D :%d " %打ちづらい
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " その他
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" cursoline
+autocmd WinEnter    * set cursorline
+autocmd WinLeave    * set nocursorline
+autocmd InsertEnter * set nocursorline
+autocmd InsertLeave * set cursorline
 
 " teraterm的な動作を
 vmap <CR> "+y
