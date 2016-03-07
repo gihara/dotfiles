@@ -261,6 +261,8 @@ vmap <C-v> <Plug>(expand_region_shrink)
 """"""""""""""""""""""""""""""
 nnoremap <Space>/ :TComment<CR>
 vnoremap <Space>/ :TComment<CR>
+nnoremap <c-_> :TComment<CR>
+vnoremap <c-_> :TComment<CR>
 
 
 """"""""""""""""""""""""""""""

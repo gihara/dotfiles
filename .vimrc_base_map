@@ -53,8 +53,6 @@ noremap <Space>k <C-b>
 
 " 挿入モードでのカーソル移動
 inoremap <c-x><c-u> <c-o>u
-inoremap <c-n> <Down>
-inoremap <c-p> <Up>
 inoremap <c-b> <Left>
 inoremap <c-f> <Right>
 inoremap <c-a> <HOME>
