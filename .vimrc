@@ -4,6 +4,9 @@ colorscheme desert " shから呼び出した時に、怒られるから
 " vimの挙動設定系
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autochdir "vimshellを使うならコメントアウト
+set noerrorbells
+set novisualbell
+set t_vb=
 set number
 set ruler
 set list
