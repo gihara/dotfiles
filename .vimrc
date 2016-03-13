@@ -318,8 +318,9 @@ autocmd InsertLeave * set cursorline
 
 " teraterm的な動作を
 vmap <CR> "+y
-nnoremap <RIGHTMOUSE> "+P
-vnoremap <RIGHTMOUSE> "+P
+nnoremap <RIGHTMOUSE> a <c-r>+<Esc>
+vnoremap <RIGHTMOUSE> a <c-r>+<Esc>
+" 大体行末にコピーするから半角スペースが入ってくれると助かる
 
 """"""""""""""""""""""""""""""
 " vimgrep
