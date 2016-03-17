@@ -30,6 +30,9 @@ set showmatch
 set matchtime=1
 set nf=""
 
+au BufNewFile,BufRead *.md set wrap
+au BufNewFile,BufRead *.txt set wrap
+
 " 常にステータス行を表示
 set laststatus=2
 "ステータスラインに文字コードと改行文字を表示する
