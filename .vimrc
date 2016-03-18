@@ -35,6 +35,11 @@ au BufNewFile,BufRead *.md inoremap <Esc> <Esc>:w<CR>
 au BufNewFile,BufRead *.txt set wrap
 au BufNewFile,BufRead *.txt inoremap <Esc> <Esc>:w<CR>
 
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+
 " 常にステータス行を表示
 set laststatus=2
 "ステータスラインに文字コードと改行文字を表示する
