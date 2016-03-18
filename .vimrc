@@ -31,7 +31,9 @@ set matchtime=1
 set nf=""
 
 au BufNewFile,BufRead *.md set wrap
+au BufNewFile,BufRead *.md inoremap <Esc> <Esc>:w<CR>
 au BufNewFile,BufRead *.txt set wrap
+au BufNewFile,BufRead *.txt inoremap <Esc> <Esc>:w<CR>
 
 " 常にステータス行を表示
 set laststatus=2
