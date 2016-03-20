@@ -117,6 +117,8 @@ NeoBundle 'tyru/open-browser.vim'
 
 " easy-motion
 NeoBundle 'easymotion/vim-easymotion'
+" easy-align
+NeoBundle 'junegunn/vim-easy-align'
 
 " Solarized
 NeoBundle 'altercation/vim-colors-solarized'
@@ -294,6 +296,15 @@ let g:quickrun_no_default_key_mappings = 1
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
 nnoremap <Space>r :write<CR>:QuickRun -mode n<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+""""""""""""""""""""""""""""""
+" vim-easy-align
+""""""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""
 " NERDTREE
