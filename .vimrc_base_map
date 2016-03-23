@@ -72,10 +72,6 @@ cnoremap <c-u> <c-e><c-u>
 cnoremap <c-v> <c-f>a
 cnoremap <c-h> <Backspace>
 
-" "0p は打ちづらい。良く使うのに
-nnoremap 0p "0p
-vnoremap 0p "0p
-
 "" 画面サイズの変更
 nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
