@@ -1,4 +1,4 @@
-colorscheme desert " shから呼び出した時に、怒られるから
+colorscheme desert " gvimではない場合はこっち
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimの挙動設定系
@@ -29,6 +29,10 @@ set pumheight=10
 set showmatch
 set matchtime=1
 set nf=""
+
+if has('win32') || has ('win64')
+	set shell=~\tools\vim74-kaoriya-win64\bash.exe
+endif
 
 au BufNewFile,BufRead *.md set wrap
 au BufNewFile,BufRead *.md set shellslash
