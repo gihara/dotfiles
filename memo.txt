@@ -1,0 +1,10 @@
+git config --global diff.tool gvim
+git config --global difftool.gvim.cmd '"$HOME\tools\vim74-kaoriya-win64\gvim.exe" -f -d "${LOCAL}" -d "${REMOTE}"'
+
+git config --global merge.tool gvim
+git config --global mergetool.gvim.cmd '"$HOME\tools\vim74-kaoriya-win64\gvim.exe" -f -c "wincmd j" -d "$MERGED" -d "$LOCAL" -d "$BASE" -d "$REMOTE"'
+
+Ctrl+w J    (大文字に注意)
+
+Wincmd j が効かない。原因を調査中
+
