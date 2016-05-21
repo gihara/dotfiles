@@ -380,6 +380,3 @@ let g:neocomplete#sources#dictionary#dictionaries = {
 \   'ruby': $HOME . '/dicts/ruby.dict',
 \ }
 
-
-nnoremap <c-b> :make<CR>
-nnoremap <F8> :make run<CR>
