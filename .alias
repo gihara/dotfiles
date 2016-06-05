@@ -1,8 +1,7 @@
 # git 系
-alias pull='git pull'
-alias push='git push'
 alias st='git status'
 alias stt='git status -uno'
+alias g='git'
 
 # コマンド系
 alias la='ls -a'
