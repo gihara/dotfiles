@@ -166,7 +166,7 @@ noremap <C-P> :Unite buffer -start-insert<CR>
 " ファイル一覧
 noremap <C-N> :Unite -buffer-name=file file -start-insert<CR>
 " 最近使ったファイルの一覧
-noremap <C-Z> :Unite file_mru -start-insert<CR>
+noremap <C-H> :Unite file_mru -start-insert<CR>
 " sourcesを「今開いているファイルのディレクトリ」とする
 noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
 " ウィンドウを分割して開く
