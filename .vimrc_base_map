@@ -47,10 +47,6 @@ vnoremap <Space>l $
 " 改行を入れる
 nnoremap <c-j> i<CR><Esc>
 
-"<space>j, <space>kで画面送り
-noremap <Space>j <C-f>
-noremap <Space>k <C-b>
-
 " 挿入モードでのカーソル移動
 inoremap <c-x><c-u> <c-o>u
 inoremap <c-b> <Left>
@@ -82,12 +78,6 @@ nnoremap <S-Down>  <C-w>+<CR>
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
-"" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
