@@ -88,8 +88,13 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Shougo/unite-outline'
 " 補完
 NeoBundle 'Shougo/neocomplete.vim'
-" vimshell
-NeoBundle 'Shougo/vimshell.vim'
+
+"" Javascript Bundle
+NeoBundle 'jelera/vim-javascript-syntax'
+
+"" HTML Bundle
+NeoBundle 'amirh/HTML-AutoCloseTag'
+NeoBundle 'tpope/vim-haml'
 " js補完
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'pangloss/vim-javascript'
@@ -101,6 +106,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 " emment
 NeoBundle 'mattn/emmet-vim'
+
 " 範囲拡大
 NeoBundle 'terryma/vim-expand-region'
 " statuslineをおしゃれに
