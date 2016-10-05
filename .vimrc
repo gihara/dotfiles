@@ -73,9 +73,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 let g:neobundle_default_git_protocol='https'
-NeoBundle 'Shougo/unite.vim'
-" Unite.vimで最近使ったファイルを表示できるようにする
-NeoBundle 'Shougo/neomru.vim'
 " ファイルをtree表示してくれる
 NeoBundle 'scrooloose/nerdtree'
 " コメントON/OFFを手軽に実行
@@ -112,23 +109,18 @@ NeoBundle 'terryma/vim-expand-region'
 " statuslineをおしゃれに
 NeoBundle 'itchyny/lightline.vim'
 " syntax
-" NeoBundle 'scrooloose/syntastic'
+ NeoBundle 'scrooloose/syntastic'
 " quickrun
 NeoBundle 'thinca/vim-quickrun'
 " JunkFile
 NeoBundle 'Shougo/junkfile.vim'
-" todolist
-NeoBundle 'davidoc/taskpaper.vim'
 
 " Markdown用
-" NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
 " easy-motion
 NeoBundle 'easymotion/vim-easymotion'
-" easy-align
-NeoBundle 'junegunn/vim-easy-align'
 
 " Solarized
 NeoBundle 'altercation/vim-colors-solarized'
@@ -164,28 +156,6 @@ set backupdir=~/dotfiles/vimfiles/backup
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Shougoさん系
-""""""""""""""""""""""""""""""
-" Unit.vim
-""""""""""""""""""""""""""""""
-" バッファ一覧
-noremap <C-P> :Unite buffer -start-insert<CR>
-" ファイル一覧
-noremap <C-N> :Unite -buffer-name=file file -start-insert<CR>
-" 最近使ったファイルの一覧
-noremap <C-H> :Unite file_mru -start-insert<CR>
-" sourcesを「今開いているファイルのディレクトリ」とする
-noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
-" ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-" ウィンドウを縦に分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-""""""""""""""""""""""""""""""
-
 """"""""""""""""""""""""""""""
 " neocomplete
 """"""""""""""""""""""""""""""
@@ -266,33 +236,10 @@ au BufRead,BufNewFile *.textile set filetype=textile
 
 
 """"""""""""""""""""""""""""""
-" Unite-outlin
-""""""""""""""""""""""""""""""
-command! Outline :Unite -no-quit -vertical  -winwidth=30 outline
-
-
-""""""""""""""""""""""""""""""
 " jscomplete
 """"""""""""""""""""""""""""""
 let g:jscomplete_use = ['dom', 'moz']
 " => autoload/js/dom.vim と autoload/js/moz.vim が読まれる
-
-
-""""""""""""""""""""""""""""""
-" vim-expand-region
-""""""""""""""""""""""""""""""
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-
-
-""""""""""""""""""""""""""""""
-" tcomment_vim
-""""""""""""""""""""""""""""""
-nnoremap <Space>/ :TComment<CR>
-vnoremap <Space>/ :TComment<CR>
-nnoremap <c-_> :TComment<CR>
-vnoremap <c-_> :TComment<CR>
-
 
 """"""""""""""""""""""""""""""
 " openbrowser
@@ -311,15 +258,6 @@ nnoremap <Space>r :write<CR>:QuickRun -mode n<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 """"""""""""""""""""""""""""""
-" vim-easy-align
-""""""""""""""""""""""""""""""
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-""""""""""""""""""""""""""""""
 " NERDTREE
 """"""""""""""""""""""""""""""
 map <F2> :NERDTreeToggle<CR>
@@ -328,10 +266,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """"""""""""""""""""""""""""""
 " easy-motion
 """"""""""""""""""""""""""""""
-" <Leader>f{char} to move to {char}
-map  <Space>F <Plug>(easymotion-bd-f)
-nmap <Space>F <Plug>(easymotion-overwin-f)
-
 " Move to word
 map  <Space>f <Plug>(easymotion-bd-w)
 nmap <Space>f <Plug>(easymotion-overwin-w)
