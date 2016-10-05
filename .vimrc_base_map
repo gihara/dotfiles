@@ -13,11 +13,6 @@ nnoremap <CR> G
 inoremap <C-w> <C-o>db
 nnoremap <Space>b :bn<CR>
 
-" <Space>v で1行選択(\n含まず)
-noremap <Space>v 0v$h
-" <Space>s で置換
-noremap <Space>s :%s/
-
 " こいつらは危ない
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
@@ -30,10 +25,6 @@ nmap <Space>p "+p
 nmap <Space>P "+P
 vmap <Space>p "+p
 vmap <Space>P "+P
-
-" 左右の画面切り替えはカーソルでできるように
-nnoremap <Left> <c-w>h
-nnoremap <Right> <c-w>l
 
 " Reset Highlight
 nnoremap <Esc><Esc> :noh<CR>
