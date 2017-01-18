@@ -1,17 +1,13 @@
 "" Map leader to ,
 let mapleader=','
 
-"x キー削除でデフォルトレジスタに入れない
-nnoremap x "_x
-vnoremap x "_x
-
 " ちょっと便利になる方々
 nnoremap Y y$
-nnoremap <Space>q :bd<CR>
-nnoremap <Space>w :w<CR>
-nnoremap <CR> G
+"nnoremap <Space>q :bd<CR>
+"nnoremap <Space>w :w<CR>
+"nnoremap <CR> G
 inoremap <C-w> <C-o>db
-nnoremap <Space>b :bn<CR>
+"nnoremap <Space>b :bn<CR>
 
 " こいつらは危ない
 nnoremap ZZ <Nop>
@@ -28,15 +24,6 @@ vmap <Space>P "+P
 
 " Reset Highlight
 nnoremap <Esc><Esc> :noh<CR>
-
-" 文頭・文末への移動
-nnoremap <Space>h ^
-nnoremap <Space>l $
-vnoremap <Space>h ^
-vnoremap <Space>l $
-
-" 改行を入れる
-nnoremap <c-j> i<CR><Esc>
 
 " 挿入モードでのカーソル移動
 inoremap <c-x><c-u> <c-o>u
@@ -80,5 +67,4 @@ vnoremap K :m '<-2<CR>gv=gv
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
 
