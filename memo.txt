@@ -6,5 +6,17 @@ git config --global mergetool.gvim.cmd '"$HOME\tools\vim74-kaoriya-win64\gvim.ex
 
 Ctrl+w J    (大文字に注意)
 
-Wincmd j が効かない。原因を調査中
-
+vimfxの場合
+{
+  "blacklist": "*confluence*  *jira*",
+  "mode.normal.paste_and_go": "",
+  "mode.normal.paste_and_go_in_tab": "",
+  "mode.normal.history_back": "<c-o>",
+  "mode.normal.history_forward": "<c-i>",
+  "mode.normal.scroll_page_down": "<c-f>",
+  "mode.normal.scroll_page_up": "<c-b>",
+  "mode.normal.scroll_half_page_down": "<c-d>",
+  "mode.normal.scroll_half_page_up": "<c-u>",
+  "mode.normal.tab_close": "d",
+  "mode.normal.tab_restore": "u"
+}
