@@ -1,26 +1,26 @@
 mklink %HOME%\.vimrc %HOME%\dotfiles\.vimrc
 mklink %HOME%\.gvimrc %HOME%\dotfiles\.gvimrc
 mklink %HOME%\.vimfiles %HOME%\dotfiles\.vimfiles
-mklink %HOME%\_vimperatorrc %HOME%\dotfiles\_vimperatorrc
 mklink %HOME%\.vrapperrc %HOME%\dotfiles\.vrapperrc
 mklink %HOME%\.ideavimrc %HOME%\dotfiles\.ideavimrc
 mklink %HOME%\.vimrc_base_map %HOME%\dotfiles\.vimrc_base_map
+mkdir  %HOME%\dotfiles\vimfiles\backup
+mkdir  %HOME%\dotfiles\vimfiles\undo
+mkdir  %HOME%\dotfiles\vimfiles\backup
 
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/.gvimrc $HOME/.gvimrc
 ln -sf $HOME/dotfiles/vimfiles $HOME/.vimfiles
-ln -sf $HOME/dotfiles/_vimperatorrc $HOME/_vimperatorrc
 ln -sf $HOME/dotfiles/.vrapperrc $HOME/.vrapperrc
 ln -sf $HOME/dotfiles/.ideavimrc $HOME/.ideavimrc
 ln -sf $HOME/dotfiles/.vimrc_base_map $HOME/.vimrc_base_map
-
-mkdir  %HOME%\dotfiles\vimfiles\swap
-mkdir  %HOME%\dotfiles\vimfiles\undo
-mkdir  %HOME%\dotfiles\vimfiles\backup
-
-mkdir -p $home/dotfiles/vimfiles/swap
-mkdir -p $home/dotfiles/vimfiles/undo
-mkdir -p $home/dotfiles/vimfiles/backup
+mkdir -p $HOME/dotfiles/vimfiles/swap
+mkdir -p $HOME/dotfiles/vimfiles/undo
+mkdir -p $HOME/dotfiles/vimfiles/backup
 
 git config --global include.path ~/dotfiles/.gitconfig
 
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
+sh ./install.sh
+mkdir ~/.vim/bundle
+git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
