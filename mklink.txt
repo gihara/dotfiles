@@ -3,7 +3,7 @@ mklink %HOME%\.gvimrc %HOME%\dotfiles\.gvimrc
 mklink %HOME%\.vimfiles %HOME%\dotfiles\.vimfiles
 mklink %HOME%\.ideavimrc %HOME%\dotfiles\.ideavimrc
 mklink %HOME%\.vimrc_base_map %HOME%\dotfiles\.vimrc_base_map
-mkdir  %HOME%\dotfiles\vimfiles\backup
+mkdir  %HOME%\dotfiles\vimfiles\swap
 mkdir  %HOME%\dotfiles\vimfiles\undo
 mkdir  %HOME%\dotfiles\vimfiles\backup
 
