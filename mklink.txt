@@ -1,7 +1,6 @@
 mklink %HOME%\.vimrc %HOME%\dotfiles\.vimrc
 mklink %HOME%\.gvimrc %HOME%\dotfiles\.gvimrc
 mklink %HOME%\.vimfiles %HOME%\dotfiles\.vimfiles
-mklink %HOME%\.vrapperrc %HOME%\dotfiles\.vrapperrc
 mklink %HOME%\.ideavimrc %HOME%\dotfiles\.ideavimrc
 mklink %HOME%\.vimrc_base_map %HOME%\dotfiles\.vimrc_base_map
 mkdir  %HOME%\dotfiles\vimfiles\backup
@@ -11,7 +10,6 @@ mkdir  %HOME%\dotfiles\vimfiles\backup
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/.gvimrc $HOME/.gvimrc
 ln -sf $HOME/dotfiles/vimfiles $HOME/.vimfiles
-ln -sf $HOME/dotfiles/.vrapperrc $HOME/.vrapperrc
 ln -sf $HOME/dotfiles/.ideavimrc $HOME/.ideavimrc
 ln -sf $HOME/dotfiles/.vimrc_base_map $HOME/.vimrc_base_map
 mkdir -p $HOME/dotfiles/vimfiles/swap
