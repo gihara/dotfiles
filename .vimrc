@@ -1,9 +1,11 @@
-colorscheme desert " windowsではmingw32でvimを使うため
+" -------------------------------------
+" 基本設定
+" -------------------------------------
+colorscheme desert
 let mapleader=","
 packadd! matchit
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vimの挙動設定系
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Vim挙動設定
 set autochdir
 set noerrorbells
 set novisualbell
@@ -31,114 +33,97 @@ set matchtime=1
 set nf=""
 set fileencoding=utf-8
 set nobomb
+set laststatus=2
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+set showmode
+set directory=~/dotfiles/vimfiles/swap
+set undodir=~/dotfiles/vimfiles/undo
+set backupdir=~/dotfiles/vimfiles/backup
 
-if has('win32') || has ('win64')
-	set shell=~\tools\vim74-kaoriya-win64\bash.exe
+if has('win32') || has('win64')
+  set shell=~\tools\vim74-kaoriya-win64\bash.exe
 endif
 
+" ファイルタイプごとの設定
 au BufNewFile,BufRead *.md set wrap
 au BufNewFile,BufRead *.md set shellslash
 au BufNewFile,BufRead *.md inoremap <Esc> <Esc>:w<CR>
 au BufNewFile,BufRead *.txt set wrap
 au BufNewFile,BufRead *.txt inoremap <Esc> <Esc>:w<CR>
 
+" 検索時に中心に表示
 nmap n nzz
 nmap N Nzz
 nmap * *zz
 nmap # #zz
 
-" 常にステータス行を表示
-set laststatus=2
-"ステータスラインに文字コードと改行文字を表示する
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-" 現在のモードを表示する
-set showmode
+" カーソルライン
+autocmd WinEnter    * set cursorline
+autocmd WinLeave    * set nocursorline
+autocmd InsertEnter * set nocursorline
+autocmd InsertLeave * set cursorline
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle plugins
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
+" vimgrep系
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :<C-u>cfirst<CR>
+nnoremap ]Q :<C-u>clast<CR>
+autocmd QuickFixCmdPost *grep* cwindow
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
+" スワップファイルがあったら読み取り専用で開く
+augroup swapchoice-readonly
+  autocmd!
+  autocmd SwapExists * let v:swapchoice = 'o'
+augroup END
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+" 基本的なkeymap読み込み
+if filereadable(expand("~/.vimrc_base_map"))
+  source ~/.vimrc_base_map
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+" j/kで見た目上の行単位移動
+nnoremap j gj
+nnoremap k gk
 
-" Let NeoBundle manage NeoBundle
-" Required:
-let g:neobundle_default_git_protocol='https'
-" 空白文字を赤くハイライトしてくれるのは便利
-NeoBundle 'bronson/vim-trailing-whitespace'
-" ファイルをtree表示してくれる
-NeoBundle 'scrooloose/nerdtree'
-" コメントON/OFFを手軽に実行
-NeoBundle 'tomtom/tcomment_vim'
-" シングルクオートとダブルクオートの入れ替え等
-NeoBundle 'tpope/vim-surround'
-" インデント
-NeoBundle 'Yggdroot/indentLine'
+" teraterm的なマウス対応
+vmap <CR> "+y
+nnoremap <RIGHTMOUSE> a <c-r>+<Esc>
+vnoremap <RIGHTMOUSE> a <c-r>+<Esc>
 
-" quickrun
-" NeoBundle 'thinca/vim-quickrun'
-" statuslineをおしゃれに
-NeoBundle 'itchyny/lightline.vim'
-" JunkFile
-NeoBundle 'Shougo/junkfile.vim'
+" 独自コマンド
+command! RC :tabnew $MYVIMRC
+command! D :%d
 
-" easy-motion
-NeoBundle 'easymotion/vim-easymotion'
+" -------------------------------------
+" vim-plug 設定
+" -------------------------------------
+call plug#begin('~/.vim/plugged')
 
-" Solarized
-NeoBundle 'altercation/vim-colors-solarized'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'scrooloose/nerdtree'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
+Plug 'itchyny/lightline.vim'
+Plug 'Shougo/junkfile.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'altercation/vim-colors-solarized'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
 
-" CtrlP
-NeoBundle 'ctrlpvim/ctrlp.vim'
+call plug#end()
 
-" tagbar
-NeoBundle 'majutsushi/tagbar'
-nmap <F8> :TagbarToggle<CR>
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-call neobundle#end()
-
-" Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-" NeoBundleCheck
-"
+" -------------------------------------
+" プラグイン設定
+" -------------------------------------
 
-" swp output directory
-set directory=~/dotfiles/vimfiles/swap
-set undodir=~/dotfiles/vimfiles/undo
-set backupdir=~/dotfiles/vimfiles/backup
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" plugin　の設定達
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""
 " easy-motion
-""""""""""""""""""""""""""""""
-" Move to word
 map  <Space>f <Plug>(easymotion-bd-w)
 nmap <Space>f <Plug>(easymotion-overwin-w)
 
-""""""""""""""""""""""""""""""
-" ctrl-p
-""""""""""""""""""""""""""""""
+" ctrlp
 let g:ctrlp_map = '<Nop>'
 nnoremap <C-h> :CtrlPMRUFiles<CR>
 nnoremap <C-P> :CtrlPBuffer<CR>
@@ -155,61 +140,6 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(1)':        ['<DOWN>'],
   \}
 
-
-""""""""""""""""""""""""""""""
-" easy-motion
-""""""""""""""""""""""""""""""
-" Move to word
-map  <Space>f <Plug>(easymotion-bd-w)
-nmap <Space>f <Plug>(easymotion-overwin-w)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 独自コマンド
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! RC :tabnew $MYVIMRC " vimrcを開きやすく
-command! D :%d " %打ちづらい
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" その他
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" cursoline
-autocmd WinEnter    * set cursorline
-autocmd WinLeave    * set nocursorline
-autocmd InsertEnter * set nocursorline
-autocmd InsertLeave * set cursorline
-
-" teraterm的な動作を
-vmap <CR> "+y
-nnoremap <RIGHTMOUSE> a <c-r>+<Esc>
-vnoremap <RIGHTMOUSE> a <c-r>+<Esc>
-" 大体行末にコピーするから半角スペースが入ってくれると助かる
-
-""""""""""""""""""""""""""""""
-" vimgrep
-""""""""""""""""""""""""""""""
-nnoremap [q :cprevious<CR>   " 前へ
-nnoremap ]q :cnext<CR>       " 次へ
-nnoremap [Q :<C-u>cfirst<CR> " 最初へ
-nnoremap ]Q :<C-u>clast<CR>  " 最後へ
-
-autocmd QuickFixCmdPost *grep* cwindow
-
-""""""""""""""""""""""""""""""
-" swapがあったら読み込み専用で開く
-""""""""""""""""""""""""""""""
-augroup swapchoice-readonly
-  autocmd!
-  autocmd SwapExists * let v:swapchoice = 'o'
-augroup END
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 基本的なkeymapを読み込み
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable(expand("~/.vimrc_base_map"))
-  source ~/.vimrc_base_map
-endif
-
-" .vimrc_base_mapに入れたら、vrapperで動かなくなった。。。
-nnoremap j gj
-nnoremap k gk
+" tagbar
+nmap <F8> :TagbarToggle<CR>
 
